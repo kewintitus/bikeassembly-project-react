@@ -1,33 +1,23 @@
 .card {
-  /* border: 1px solid lightseagreen; */
+  border: 1px solid #87a5ef;
   padding: 12px;
+  color: #1d2e5c;
   border-radius: 8px;
   height: 100px;
   display: flex;
+  background-color: #edf2fe;
   align-items: center;
   justify-content: space-between;
 }
 
-.completeCard {
-  border: 1px solid green;
-  background-color: rgb(206, 255, 206);
-  color: darkgreen;
-}
-.cancelledCard {
-  border: 1px solid red;
-  background-color: rgb(255, 213, 213);
-  color: darkred;
-}
 .imgContainer {
   height: 60px;
   /* background-color: yellow; */
   object-fit: contain;
-  display: flex;
-  align-items: center;
 }
 
 .imgContainer img {
-  width: 60px;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -60,4 +50,19 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 8px 0px;
+}
+.actionContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cancelBtn {
+  padding: 6px 8px;
+  background-color: red;
+  border: 1px solid red;
+
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
 }

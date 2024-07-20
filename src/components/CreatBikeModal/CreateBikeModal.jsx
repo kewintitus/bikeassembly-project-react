@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from 'react';
 import classes from './CreateBikeModal.module.css';
 import * as Dialog from '@radix-ui/react-dialog';
 import axios from 'axios';
 import { apiURL } from '../../../utils';
 
-const CreateBikeModal = () => {
+const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
   const [bikeTypes, setBikeTypes] = useState([]);
   const [duration, setDuration] = useState(0);
   const [selectedBike, setSelecteBike] = useState({});
@@ -48,19 +49,27 @@ const CreateBikeModal = () => {
         { withCredentials: true }
       );
       console.log(res);
+      fetchUserRecords();
+      // setInProgressBikeRecords((prev) => prev.push());
     } catch (error) {
       console.log(error);
     }
 
     // console.log(bikeSelectRef.current.value);
   };
+
   useEffect(() => {
     fetchBikeTypes();
   }, []);
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className={classes.startAssyBtn}>Start Build</button>
+        <button
+          disabled={inProgressBikeRecords && inProgressBikeRecords?.length > 0}
+          className={classes.startAssyBtn}
+        >
+          Start Build
+        </button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className={classes.dialogOverlay} />

@@ -77,5 +77,6 @@
 
 .recentBuildContainer {
   flex: 1;
+  overflow: auto;
   /* background-color: rebeccapurple; */
 }

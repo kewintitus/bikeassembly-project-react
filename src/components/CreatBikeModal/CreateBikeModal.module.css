@@ -33,6 +33,10 @@
 .startAssyBtn:hover {
   background-color: #3657c3;
 }
+.startAssyBtn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
 
 .contentArea {
   display: flex;
