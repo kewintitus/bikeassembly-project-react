@@ -6,7 +6,7 @@ import { apiURL } from '../../../utils';
 
 const CreateBikeModal = () => {
   const [bikeTypes, setBikeTypes] = useState([]);
-  const [duration, setDuration] = useState(50);
+  const [duration, setDuration] = useState(0);
   const [selectedBike, setSelecteBike] = useState({});
 
   const bikeSelectRef = useRef();
@@ -34,6 +34,24 @@ const CreateBikeModal = () => {
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
+    console.log(selectedBike);
+
+    const reqBody = {
+      bikeType: selectedBike?.bikeType,
+      bikeName: selectedBike?.name,
+      duration: selectedBike?.durationMinutes,
+    };
+    try {
+      const res = await axios.post(
+        `${apiURL}/bikeRecords`,
+        { ...reqBody },
+        { withCredentials: true }
+      );
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+
     // console.log(bikeSelectRef.current.value);
   };
   useEffect(() => {
@@ -59,6 +77,7 @@ const CreateBikeModal = () => {
                   name="bikeTypeSelect"
                   id=""
                 >
+                  <option>--Select--</option>
                   {bikeTypes.map((data) => {
                     return (
                       <option key={data?._id} value={data?.bikeType}>
