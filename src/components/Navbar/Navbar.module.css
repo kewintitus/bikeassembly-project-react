@@ -1,0 +1,40 @@
+.nav {
+  width: 100%;
+  background: #fdfdfe;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+  border: 1px solid #d8d9e0;
+}
+
+.loggedIn {
+  background-color: #fdfdfe;
+}
+
+.loginBtn {
+  padding: 8px;
+  background-color: #183883;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.logoutBtn {
+  padding: 8px;
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.loginBtn a {
+  color: white;
+  text-decoration: none;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

@@ -1,0 +1,81 @@
+.assemblePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 0px 16px;
+
+  /* background-color: aqua; */
+  padding-bottom: 12px;
+}
+
+.assemblePageHeader {
+  margin-top: 4px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.assemblyLine {
+  border: 1px solid #bdd1ff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.assemblyLineHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed lightgray;
+  border-spacing: 4px;
+  padding: 4px;
+  padding-bottom: 12px;
+}
+
+.primaryCard {
+  border: 1px solid #bdd1ff;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fdfdfe;
+}
+.startAssyBtn {
+  background-color: #3d63dd;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.startAssyBtn:hover {
+  background-color: #3657c3;
+}
+.noBuild {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #a6bff9;
+  margin-top: 8px;
+  border-radius: 4px;
+  color: #87a5ef;
+  font-size: 0.8rem;
+}
+.recentBuild {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* background-color: yellow; */
+}
+
+.recentBuildHeader {
+  margin-top: 16px;
+  padding: 4px;
+  border-bottom: 1px dashed lightgray;
+  padding-bottom: 12px;
+}
+
+.recentBuildContainer {
+  flex: 1;
+  /* background-color: rebeccapurple; */
+}
