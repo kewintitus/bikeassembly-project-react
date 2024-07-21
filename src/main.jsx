@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import store from './store/store.js';
 import Home from './page/home/Home.jsx';
 import Assemble from './page/assemble/Assemble.jsx';
+import Monitor from './page/monitor/Monitor.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       { path: '/assemble', element: <Assemble /> },
+      { path: '/monitor', element: <Monitor /> },
     ],
   },
   {

@@ -12,6 +12,8 @@ const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
 
   const bikeSelectRef = useRef();
   const durationRef = useRef();
+
+  const [open, setOpen] = useState(false);
   const fetchBikeTypes = async () => {
     const res = await axios.get(`${apiURL}/bikeTypes`, {
       withCredentials: true,
@@ -62,17 +64,27 @@ const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
     fetchBikeTypes();
   }, []);
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open}>
       <Dialog.Trigger asChild>
         <button
           disabled={inProgressBikeRecords && inProgressBikeRecords?.length > 0}
           className={classes.startAssyBtn}
+          onClick={() => {
+            setOpen(true);
+          }}
+          title="Note: only one build ata a time"
         >
           Start Build
+          {/* <div className="">a</div> */}
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className={classes.dialogOverlay} />
+        <Dialog.Overlay
+          onClick={() => {
+            setOpen(false);
+          }}
+          className={classes.dialogOverlay}
+        />
         <Dialog.Content className={classes.dialogContent}>
           <Dialog.Title>Create New Bike</Dialog.Title>
           <Dialog.Description />
@@ -81,6 +93,7 @@ const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
               <div className={classes.selectBike}>
                 <label htmlFor="">Select Bike Type</label>
                 <select
+                  className={classes.bikeSelect}
                   onChange={setDurationHandler}
                   ref={bikeSelectRef}
                   name="bikeTypeSelect"
@@ -99,17 +112,22 @@ const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
               <div className={classes.durationSelect}>
                 <label htmlFor="duration">Duration</label>
                 <input
+                  className={classes.durationInput}
                   ref={durationRef}
                   type="number"
+                  disabled
                   defaultValue={`${duration || 0}`}
                 ></input>
               </div>
             </div>
             <div className={classes.formActions}>
               <Dialog.Close
+                onClick={() => {
+                  setOpen(false);
+                }}
                 className={`${classes.btn} ${classes.modalCloseBtn}`}
               >
-                Cancel
+                Close
               </Dialog.Close>
               <button
                 className={`${classes.btn} ${classes.submitBtn}`}

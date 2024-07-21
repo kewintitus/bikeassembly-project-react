@@ -38,3 +38,18 @@
   align-items: center;
   gap: 16px;
 }
+
+.navItem {
+  background-color: #d8d9e0;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-weight: 500;
+  /* color: #1d2e5c; */
+  /* color: #62636c; */
+  color: #3657c3;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.navItem a {
+  text-decoration: none;
+}

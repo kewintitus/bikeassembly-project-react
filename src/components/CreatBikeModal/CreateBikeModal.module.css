@@ -47,6 +47,19 @@
   flex-direction: column;
   gap: 8px;
 }
+.bikeSelect {
+  padding: 6px 8px;
+  background-color: #edf2fe;
+  border: 1px solid #bdd1ff;
+  border-radius: 4px;
+}
+.durationInput {
+  padding: 6px 8px;
+  background-color: #eff0f3;
+  border: 1px solid #d8d9e0;
+  border-radius: 4px;
+}
+
 .modalBody {
   display: flex;
   flex-direction: column;

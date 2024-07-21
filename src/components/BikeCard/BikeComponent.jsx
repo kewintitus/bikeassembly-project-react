@@ -68,9 +68,7 @@ const BikeComponent = ({
       </div>
       <div className={classes.section2}>
         <div>{status}</div>
-        <div>
-          {status} on {status == 'Completed' ? endDateTime : cancelledDateTime}
-        </div>
+        <div>on {status == 'Completed' ? endDateTime : cancelledDateTime}</div>
       </div>
     </div>
   );

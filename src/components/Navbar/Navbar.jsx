@@ -9,6 +9,7 @@ import axios from 'axios';
 import { apiURL } from '../../../utils';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import AccountPopover from '../AccountPopover/AccountPopover';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const Navbar = () => {
     checkLoginStatus();
   }, []);
   const handleLogout = async () => {
-    await axios.post(`${apiURL}/logout`);
+    await axios.post(`${apiURL}/logout`, {}, { withCredentials: true });
     dispatch(setLoggedOut());
     navigate('/login');
   };
@@ -50,17 +51,17 @@ const Navbar = () => {
     >
       <div>MANUFACTURING CENTER</div>
       <div className={`${classes.navRight}`}>
-        <div>{data?.auth?.isLoggedIn && data?.auth?.user}</div>
-        {data?.auth.isLoggedIn ? (
-          <button onClick={handleLogout} className={`${classes.logoutBtn}`}>
-            logout
-          </button>
-        ) : (
-          <button className={`${classes.loginBtn}`}>
-            <Link to="/login">Login</Link>
-          </button>
-          // <button onClick={handleLogin}>Login</button>
+        {data.auth.role == 'user' && (
+          <Link className={classes.navItem} to={'/assemble'}>
+            Build Bike
+          </Link>
         )}
+        {data.auth.role == 'admin' && (
+          <Link className={classes.navItem} to={'/monitor'}>
+            Monitor Production
+          </Link>
+        )}
+        <AccountPopover handleLogout={handleLogout} userData={data?.auth} />
       </div>
     </div>
   );

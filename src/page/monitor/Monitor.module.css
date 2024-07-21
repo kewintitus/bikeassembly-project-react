@@ -1,0 +1,98 @@
+.monitorPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 12px;
+}
+.pageHeader {
+  font-size: 1.2rem;
+  padding: 4px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.primaryCard {
+  /* border: 1px solid #bdd1ff; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.filterSection {
+  display: flex;
+  gap: 4px;
+  /* border-bottom: 1px dashed lightgray; */
+  padding-bottom: 4px;
+}
+
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.filterContainer label {
+  font-size: 0.8rem;
+}
+
+.filterContainer input {
+  background-color: #edf2fe;
+  border: 1px solid #bdd1ff;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+.topInfoCards {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.topInfoCard {
+  padding: 16px;
+  /* background-color: #dfeaff; */
+  background-color: #fdfdfe;
+  /* border: 1px solid #87a5ef; */
+  border: 1px solid #cdced7;
+  border-radius: 12px;
+}
+.topInfoLabel {
+  /* color: #8b8d98; */
+  color: #3657c3;
+  font-size: 0.7rem;
+}
+.topInfoValueCont {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  /* justify-content: space-between; */
+  gap: 18px;
+  padding: 8px 0px;
+}
+.topInfoValue2 {
+  color: #395bc7;
+  font-weight: 600;
+}
+.graphcard {
+  /* width: 400px; */
+  height: 100%;
+  background-color: #fdfdfe;
+  border: 1px solid #cdced7;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.row1 {
+  height: 300px;
+  display: flex;
+  gap: 18px;
+}
+
+.chartLabel {
+  font-size: 0.8rem;
+}
