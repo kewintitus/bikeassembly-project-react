@@ -1,9 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import {
   PieChart,
   Pie,
-  Sector,
   Cell,
   ResponsiveContainer,
   Tooltip,

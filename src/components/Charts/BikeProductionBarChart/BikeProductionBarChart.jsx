@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import { PureComponent } from 'react';
 import {
   BarChart,
   Bar,
-  Rectangle,
   XAxis,
   YAxis,
   CartesianGrid,

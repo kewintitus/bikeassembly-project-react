@@ -5,15 +5,7 @@ import bike2 from './../../assets/bike-2.png';
 import bike3 from './../../assets/bike-3.png';
 import { useEffect, useState } from 'react';
 
-const BikeComponent = ({
-  status,
-  bikeType,
-  bikeName,
-  duration,
-  startsAt,
-  endsAt,
-  elapsedTime,
-}) => {
+const BikeComponent = ({ status, bikeType, duration, endsAt, elapsedTime }) => {
   const [bikeIcon, setBikeIcon] = useState(null);
 
   const bikeIconHelper = () => {
