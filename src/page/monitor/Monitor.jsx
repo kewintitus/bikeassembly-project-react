@@ -208,13 +208,20 @@ const Monitor = () => {
           <div className={classes.graphcard}>
             <div className={classes.chartLabel}>Bike Production</div>
             <div className={classes.chartSubLabel}>UOM: No of Bikes</div>
-            <BikeProductionBarChart data={allBikeTypeCountData} />
+            {allBikeTypeCountData.length === 0 ? (
+              <div>No Data for selected date range</div>
+            ) : (
+              <BikeProductionBarChart data={allBikeTypeCountData} />
+            )}
           </div>
           <div className={classes.graphcard}>
             <div className={classes.chartLabel}>Employee Contribution</div>
             <div className={classes.chartSubLabel}>UOM: No of Bikes</div>
-
-            <EmployeeContributionPieChart data={allEmployeeContribution} />
+            {allEmployeeContribution.length === 0 ? (
+              <div>No Data for selected date range</div>
+            ) : (
+              <EmployeeContributionPieChart data={allEmployeeContribution} />
+            )}
           </div>
         </div>
         <div className={classes.row1}>
@@ -223,12 +230,15 @@ const Monitor = () => {
               Production Trend - Bike Types
             </div>
             <div className={classes.chartSubLabel}>UOM: No of Bikes</div>
-
-            <BikeProductionTrndChart
-              data={allBikeTypeProductionTrendData}
-              fromDate={fromDate}
-              toDate={toDate}
-            />
+            {allBikeTypeProductionTrendData.length === 0 ? (
+              <div>No Data for selected date range</div>
+            ) : (
+              <BikeProductionTrndChart
+                data={allBikeTypeProductionTrendData}
+                fromDate={fromDate}
+                toDate={toDate}
+              />
+            )}
           </div>
         </div>
       </div>
