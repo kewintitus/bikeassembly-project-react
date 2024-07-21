@@ -5,6 +5,7 @@
   height: 100%;
   overflow: auto;
   padding: 0px 16px;
+  overflow: auto;
 
   /* background-color: aqua; */
   padding-bottom: 12px;
