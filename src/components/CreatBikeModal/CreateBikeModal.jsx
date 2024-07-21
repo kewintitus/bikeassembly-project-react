@@ -51,6 +51,7 @@ const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
         { withCredentials: true }
       );
       console.log(res);
+      setOpen(false);
       fetchUserRecords();
       // setInProgressBikeRecords((prev) => prev.push());
     } catch (error) {

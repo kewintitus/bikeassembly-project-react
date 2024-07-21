@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { PureComponent } from 'react';
 import {
   PieChart,
@@ -9,14 +10,14 @@ import {
   Legend,
 } from 'recharts';
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-  { name: 'Group E', value: 278 },
-  { name: 'Group F', value: 189 },
-];
+// const data = [
+//   { name: 'Group A', value: 400 },
+//   { name: 'Group B', value: 300 },
+//   { name: 'Group C', value: 300 },
+//   { name: 'Group D', value: 200 },
+//   { name: 'Group E', value: 278 },
+//   { name: 'Group F', value: 189 },
+// ];
 
 const COLORS = [
   '#0088FE',
@@ -31,13 +32,22 @@ export default class EmployeeContributionPieChart extends PureComponent {
   renderCustomizedLabel = ({ name, value }) => {
     return `${name}: ${value}`;
   };
+  transformData = (apiData) => {
+    return apiData.map((item) => ({
+      name: item._id,
+      value: item.count,
+    }));
+  };
   render() {
+    const { data } = this.props;
+    const transformedData = this.transformData(data);
+
     return (
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
           <Pie
             dataKey="value"
-            data={data}
+            data={transformedData}
             cx="50%"
             cy="50%"
             outerRadius={80}
