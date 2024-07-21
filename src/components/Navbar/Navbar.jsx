@@ -35,7 +35,7 @@ const Navbar = () => {
     }
     // dispatch(setLoggedIn());
 
-    console.log(res);
+    // console.log(res);
   };
   useEffect(() => {
     checkLoginStatus();
