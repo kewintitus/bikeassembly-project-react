@@ -6,6 +6,7 @@ import bike3 from './../../assets/bike-3.png';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { apiURL } from '../../../utils';
+import { toast } from 'react-toastify';
 
 const InProgressBikeComponent = ({
   status,
@@ -34,8 +35,10 @@ const InProgressBikeComponent = ({
       console.log('updated', res);
       fetchUserRecords();
       // setRecentBikeRecords((prev) => prev.push({}));
+      toast.success('Build cancelled successfully!!');
     } catch (error) {
       console.log(error);
+      toast.error('Unable to cancel build');
     }
   };
 

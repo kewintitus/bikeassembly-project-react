@@ -4,6 +4,7 @@ import classes from './CreateBikeModal.module.css';
 import * as Dialog from '@radix-ui/react-dialog';
 import axios from 'axios';
 import { apiURL } from '../../../utils';
+import { toast } from 'react-toastify';
 
 const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
   const [bikeTypes, setBikeTypes] = useState([]);
@@ -53,9 +54,11 @@ const CreateBikeModal = ({ inProgressBikeRecords, fetchUserRecords }) => {
       console.log(res);
       setOpen(false);
       fetchUserRecords();
+      toast.success('Bike Created Successfully');
       // setInProgressBikeRecords((prev) => prev.push());
     } catch (error) {
       console.log(error);
+      toast.error('Unable to create bike');
     }
 
     // console.log(bikeSelectRef.current.value);

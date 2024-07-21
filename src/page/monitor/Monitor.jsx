@@ -5,7 +5,7 @@ import classes from './Monitor.module.css';
 import axios from 'axios';
 import { apiURL } from '../../../utils';
 import BikeProductionTrndChart from '../../components/Charts/BikeProductionTrendChart/BikeProductionTrendChart';
-import { toast, ToastContainer } from 'react-toastify';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const Monitor = () => {
   const getDefaultFromDate = () => {
@@ -139,10 +139,8 @@ const Monitor = () => {
         draggable
         pauseOnHover
         theme="light"
-        transition:Bounce
+        transition={Bounce}
       />
-
-      <ToastContainer />
 
       <div className={classes.pageHeader}>
         <div>Production Dashboard</div>

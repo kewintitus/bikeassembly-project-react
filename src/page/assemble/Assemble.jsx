@@ -6,28 +6,33 @@ import classes from './Assemble.module.css';
 import InProgressBikeComponent from '../../components/InProgressBikeComponent/InProgressBikeComponent';
 import axios from 'axios';
 import { apiURL } from '../../../utils';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 const Assemble = () => {
-  const [bikeRecords, setBikeRecords] = useState([]);
+  // const [bikeRecords, setBikeRecords] = useState([]);
   const [inProgressBikeRecords, setInProgressBikeRecords] = useState([]);
   const [recentBikeRecords, setRecentBikeRecords] = useState([]);
 
   const fetchUserRecords = async () => {
-    const res = await axios.get(`${apiURL}/bikeRecords?type=userRecords`, {
-      withCredentials: true,
-    });
-    const resData = res.data.data;
-    const inProgressRecords = resData.filter(
-      (data) => data?.status == 'In Progress'
-    );
-    const recentRecords = resData.filter(
-      (data) => data?.status == 'Cancelled' || data.status == 'Completed'
-    );
-    console.log(recentRecords);
-    console.log(resData);
-    setBikeRecords(resData);
-    setInProgressBikeRecords(inProgressRecords);
-    setRecentBikeRecords(recentRecords);
+    try {
+      const res = await axios.get(`${apiURL}/bikeRecords?type=userRecords`, {
+        withCredentials: true,
+      });
+      const resData = res.data.data;
+      const inProgressRecords = resData.filter(
+        (data) => data?.status == 'In Progress'
+      );
+      const recentRecords = resData.filter(
+        (data) => data?.status == 'Cancelled' || data.status == 'Completed'
+      );
+      console.log(recentRecords);
+      console.log(resData);
+      // setBikeRecords(resData);
+      setInProgressBikeRecords(inProgressRecords);
+      setRecentBikeRecords(recentRecords);
+    } catch (error) {
+      toast.error('Error in fetching data');
+    }
   };
 
   useEffect(() => {
@@ -35,6 +40,20 @@ const Assemble = () => {
   }, []);
   return (
     <div className={`${classes.assemblePage}`}>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
+
       <div className={`${classes.assemblePageHeader}`}>Welcome User</div>
       <div className={`${classes.assemblyLine} ${classes.primaryCard}`}>
         <div className={`${classes.assemblyLineHeader}`}>

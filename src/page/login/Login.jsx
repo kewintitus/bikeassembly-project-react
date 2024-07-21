@@ -6,7 +6,7 @@ import { apiURL } from '../../../utils';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setLoggedIn } from '../../slices/authSlice';
-import { toast, ToastContainer } from 'react-toastify';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -51,8 +51,9 @@ const Login = () => {
         draggable
         pauseOnHover
         theme="light"
-        transition:Bounce
+        transition={Bounce}
       />
+
       <form onSubmit={handleLogin} className={classes.loginContainer} action="">
         <div className={`${classes.bgShape}`}></div>
         <div className={`${classes.loginLabel}`}>
