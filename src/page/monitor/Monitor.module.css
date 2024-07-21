@@ -56,11 +56,31 @@
   /* border: 1px solid #87a5ef; */
   border: 1px solid #cdced7;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
 }
 .topInfoLabel {
   /* color: #8b8d98; */
-  color: #3657c3;
+  color: #5f6067;
+  /* color: #3657c3; */
+  /* color: #1d2e5c; */
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.subTopInfoLabel {
   font-size: 0.7rem;
+  color: #62636c;
+}
+.chartLabel {
+  color: #5f6067;
+  /* color: #3657c3; */
+  /* color: #1d2e5c; */
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.chartSubLabel {
+  font-size: 0.7rem;
+  color: #62636c;
 }
 .topInfoValueCont {
   display: flex;
@@ -91,8 +111,4 @@
   height: 300px;
   display: flex;
   gap: 18px;
-}
-
-.chartLabel {
-  font-size: 0.8rem;
 }
